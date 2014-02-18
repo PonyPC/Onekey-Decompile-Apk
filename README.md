@@ -16,3 +16,5 @@ How to use
 You should find the framework-res.apk by yourself cause the filesize exceed the maximum of github.
 
 It's in your Android device /system/framework/framework-res.apk
+
+And put it in _tools/apktools/framework-res.apk
