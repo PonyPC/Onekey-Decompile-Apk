@@ -1,34 +1,36 @@
 @echo off
-echo ==================================
+echo ----------------------------------
 echo Onekey Decompile Apk
-echo v2.0.2 20160129
+echo v2.3.0 20171125
 echo Based on https://code.google.com/p/onekey-decompile-apk/
-echo **********************************
-echo How to use
-echo ------------------------------------
-echo 1. Put your apk in this folder
-echo 2. Drag the apk on _onekey-decompile-apk.bat
-echo 3. Wait for invoking jd-gui, "File"-"Save All Sources"
-echo 4. Folder and apk with the same name is what you needed
-echo ==================================
+echo ----------------------------------
+if "%1" == "" (
+	echo How to use
+	echo ==================================
+	echo 1. Drag your apk on _onekey-decompile-apk.bat
+	echo 2. Wait for invoking jd-gui, "File"-"Save All Sources"
+	echo 3. Folder and apk with the same name is what you needed
+	echo ==================================
+	pause
+	exit
+)
 
 set apkFile=%1
-set jarFile=%apkFile%.jar
-rem change directory to apk folder
-cd /d %apkFile%\..
-rem delete previous generation
-rd /s /q "%apkFile%" >NUL 2>NUL
+set jarPath=%~dpn1
+set jarFile=%jarPath%\%~n1.jar
+:: delete previous generation
+rd /s /q "%~dpn1" >NUL 2>NUL
 
-rem install framework to ensure decompile without errors
-echo .........framework........
-java -jar "_tools\apktool\apktool_2.0.3.jar" if "_tools\apktool\framework-res.apk"
+if exist "%~dp0_tools\framework\framework-res.zip" (
+	echo Please unzip framework-res.zip in %~dp0_tools\framework firstly
+	pause
+	exit
+)
 echo .........apktool..........
-java -jar "_tools\apktool\apktool_2.0.3.jar" decode -d -f "%apkFile%"
+java -jar "%~dp0_tools\apktool\apktool_2.3.0.jar" d -p "%~dp0_tools\framework" -s "%apkFile%" -o "%jarPath%"
 echo .........dex2jar..........
-call _tools\dex2jar\d2j-dex2jar -f "%apkFile%" -o "%jarFile%"
+call "%~dp0_tools\dex2jar\d2j-dex2jar.bat" -f "%apkFile%" -o "%jarFile%"
 echo .........jd-gui...........
-call _tools\jd-gui\jd-gui "%jarFile%"
-
-rem delete the jar
-pause
-::del /q "%jarFile%" >NUL 2>NUL
+call "%~dp0_tools\jd-gui\jd-gui" "%jarFile%"
+echo .........jadx-gui.........
+call "%~dp0_tools\jadx\bin\jadx-gui.bat" "%apkFile%"
