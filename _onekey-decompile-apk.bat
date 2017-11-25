@@ -21,7 +21,7 @@ set jarFile=%jarPath%\%~n1.jar
 :: delete previous generation
 rd /s /q "%~dpn1" >NUL 2>NUL
 
-if exist "%~dp0_tools\framework\framework-res.zip" (
+if not exist "%~dp0_tools\framework\framework-res.apk" (
 	echo Please unzip framework-res.zip in %~dp0_tools\framework firstly
 	pause
 	exit
