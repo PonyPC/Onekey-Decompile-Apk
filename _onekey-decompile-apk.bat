@@ -26,6 +26,8 @@ if not exist "%~dp0_tools\framework\framework-res.apk" (
 	pause
 	exit
 )
+del /f /s /q "%~dp0_tools\framework\1.apk" >NUL 2>NUL
+copy "%~dp0_tools\framework\framework-res.apk" "%~dp0_tools\framework\1.apk" >NUL 2>NUL
 echo .........apktool..........
 java -jar "%~dp0_tools\apktool\apktool_2.3.0.jar" d -p "%~dp0_tools\framework" -s "%apkFile%" -o "%jarPath%"
 echo .........dex2jar..........
