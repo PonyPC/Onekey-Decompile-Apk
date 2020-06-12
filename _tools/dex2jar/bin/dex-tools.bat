@@ -63,7 +63,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\ST4-4.0.8.jar;%APP_HOME%\lib\org.abego.treelayout.core-1.0.1.jar;%APP_HOME%\lib\antlr4-runtime-4.5.jar;%APP_HOME%\lib\d2j-smali-2.1-SNAPSHOT.jar;%APP_HOME%\lib\dex-writer-2.1-SNAPSHOT.jar;%APP_HOME%\lib\antlr-runtime-3.5.2.jar;%APP_HOME%\lib\asm-debug-all-5.0.3.jar;%APP_HOME%\lib\dex-translator-2.1-SNAPSHOT.jar;%APP_HOME%\lib\dex-reader-2.1-SNAPSHOT.jar;%APP_HOME%\lib\dex-reader-api-2.1-SNAPSHOT.jar;%APP_HOME%\lib\antlr4-4.5.jar;%APP_HOME%\lib\dex-tools-2.1-SNAPSHOT.jar;%APP_HOME%\lib\d2j-jasmin-2.1-SNAPSHOT.jar;%APP_HOME%\lib\dex-ir-2.1-SNAPSHOT.jar;%APP_HOME%\lib\d2j-base-cmd-2.1-SNAPSHOT.jar;%APP_HOME%\lib\antlr-3.5.2.jar
+set CLASSPATH=%APP_HOME%\lib\ST4-4.0.8.jar;%APP_HOME%\lib\org.abego.treelayout.core-1.0.1.jar;%APP_HOME%\lib\antlr4-runtime-4.5.jar;%APP_HOME%\lib\d2j-smali-2.1-SNAPSHOT.jar;%APP_HOME%\lib\dex-writer-2.1-SNAPSHOT.jar;%APP_HOME%\lib\antlr-runtime-3.5.2.jar;%APP_HOME%\lib\asm-debug-all-5.0.3.jar;%APP_HOME%\lib\dex-translator-2.1-SNAPSHOT.jar;%APP_HOME%\lib\dex-reader-2.1-SNAPSHOT.jar;%APP_HOME%\lib\dx-23.0.0.jar;%APP_HOME%\lib\dex-reader-api-2.1-SNAPSHOT.jar;%APP_HOME%\lib\antlr4-4.5.jar;%APP_HOME%\lib\dex-tools-2.1-SNAPSHOT.jar;%APP_HOME%\lib\d2j-jasmin-2.1-SNAPSHOT.jar;%APP_HOME%\lib\dex-ir-2.1-SNAPSHOT.jar;%APP_HOME%\lib\d2j-base-cmd-2.1-SNAPSHOT.jar;%APP_HOME%\lib\antlr-3.5.2.jar
 
 @rem Execute dex-tools
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %DEX_TOOLS_OPTS%  -classpath "%CLASSPATH%" com.googlecode.dex2jar.tools.BaseCmd %CMD_LINE_ARGS%
