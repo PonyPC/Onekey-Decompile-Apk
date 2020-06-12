@@ -1,14 +1,12 @@
 Onekey-Decompile-Apk
 ====================
-v2.3.0 20171125
-add support for 7.0 framework
+v2.4.0 20200612
 upgrade all tools
 
 Based on https://code.google.com/p/onekey-decompile-apk/
 
 How to use
 ----------------------------------
-!!! Unzip framework FIRST in _tools due to github file max size
 1. Drag your apk on _onekey-decompile-apk.bat
 2. Wait for invoking jd-gui, "File"-"Save All Sources"
 3. Folder and apk with the same name is what you needed
