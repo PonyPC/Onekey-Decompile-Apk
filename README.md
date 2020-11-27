@@ -1,7 +1,7 @@
 Onekey-Decompile-Apk
 ====================
-v2.4.0 20200612
-upgrade all tools
+v2.4.1 20201126
+fix decompile resource
 
 Based on https://code.google.com/p/onekey-decompile-apk/
 
