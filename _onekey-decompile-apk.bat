@@ -1,7 +1,7 @@
 @echo off
 echo ==================================
 echo Onekey Decompile Apk
-echo v2.0.2 20200612
+echo v2.4.1 20201126
 echo Based on https://code.google.com/p/onekey-decompile-apk/
 echo **********************************
 echo How to use
@@ -20,7 +20,7 @@ rem delete previous generation
 rd /s /q "%~dpn1" >NUL 2>NUL
 
 echo .........apktool..........
-java -jar "_tools\apktool\apktool_2.4.1.jar" d "%apkFile%" -p "%~dp0_tools\apktool" -d -f
+java -jar "_tools\apktool\apktool_2.4.1.jar" d "%apkFile%" -p "%~dp0_tools\apktool" -f
 echo .........dex2jar..........
 call _tools\dex2jar\d2j-dex2jar -f "%apkFile%" -o "%jarFile%"
 echo .........jd-gui...........
